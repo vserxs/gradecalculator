@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050b18">
+  <meta name="description" content="A neon blue student grade calculator with instant exam score predictions.">
+  <title>Student Grade Calculator — Neon Blue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topline"><span class="brand-mark" aria-hidden="true">✳</span><span>ACADEMIC PERFORMANCE</span><span class="topline-rule"></span><span class="term-label">COURSE CALCULATOR <i></i></span></header>
+    <section class="calculator" aria-labelledby="page-title">
+      <div class="hero">
+        <div class="eyebrow"><span class="live-dot"></span> YOUR ACADEMIC OUTLOOK</div>
+        <h1 id="page-title">Know where<br>you <span>stand.</span></h1>
+        <p class="intro">Track your progress, forecast your final, and plan your next move.</p>
+      </div>
+
+      <div class="input-card panel">
+        <div class="section-heading"><div><span class="step-index">01</span><h2>Your scores</h2></div><span class="scale-note">ALL SCORES / 100</span></div>
+        <div class="fields">
+          <label class="field" for="regMid"><span class="field-top"><span>RegMid</span><span class="required">REQUIRED</span></span><span class="field-caption">First attestation</span><span class="input-wrap"><input id="regMid" name="regMid" type="number" min="0" max="100" step="any" inputmode="decimal" placeholder="—" aria-describedby="regMid-error"><span class="input-suffix">PTS</span></span><span class="field-error" id="regMid-error" aria-live="polite"></span></label>
+          <label class="field" for="regEnd"><span class="field-top"><span>RegEnd</span><span class="required">REQUIRED</span></span><span class="field-caption">Second attestation</span><span class="input-wrap"><input id="regEnd" name="regEnd" type="number" min="0" max="100" step="any" inputmode="decimal" placeholder="—" aria-describedby="regEnd-error"><span class="input-suffix">PTS</span></span><span class="field-error" id="regEnd-error" aria-live="polite"></span></label>
+          <label class="field" for="finalExam"><span class="field-top"><span>Final exam</span><span class="optional">OPTIONAL</span></span><span class="field-caption">Enter when you have it</span><span class="input-wrap"><input id="finalExam" name="finalExam" type="number" min="0" max="100" step="any" inputmode="decimal" placeholder="—" aria-describedby="finalExam-error"><span class="input-suffix">PTS</span></span><span class="field-error" id="finalExam-error" aria-live="polite"></span></label>
+        </div>
+        <div class="formula"><span class="formula-icon">ƒ</span><span>Course formula</span><code>30% + 30% + 40%</code></div>
+        <div class="form-actions"><button class="button button-primary" id="calculateBtn" type="button"><span>Calculate result</span><span aria-hidden="true">↗</span></button><button class="button button-quiet" id="resetBtn" type="button">Reset calculator</button></div>
+        <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+      </div>
+
+      <section class="admission panel state-panel" id="admissionPanel" hidden aria-live="polite"></section>
+
+      <section class="predictions" id="predictions" hidden aria-labelledby="prediction-heading">
+        <div class="section-heading prediction-heading"><div><span class="step-index">02</span><h2 id="prediction-heading">Your targets</h2></div><span class="auto-tag"><span class="live-dot"></span> LIVE FORECAST</span></div>
+        <div class="prediction-grid">
+          <article class="prediction-card panel" id="scholarshipPrediction" aria-live="polite"></article>
+          <article class="prediction-card panel" id="summerPrediction" aria-live="polite"></article>
+        </div>
+      </section>
+
+      <section class="results panel" id="results" hidden aria-labelledby="results-heading">
+        <div class="section-heading"><div><span class="step-index">03</span><h2 id="results-heading">Your result</h2></div><span class="result-tag">OFFICIAL TOTAL</span></div>
+        <div class="result-main"><div class="score-orbit" id="scoreOrbit"><div class="orbit-inner"><span class="score-value" id="totalScore">—</span><span class="score-outof">OUT OF 100</span></div></div><div class="result-copy"><span class="result-kicker">TOTAL COURSE RESULT</span><h3 id="resultTitle">Your course total</h3><p id="resultExplanation"></p></div></div>
+        <div class="status-grid"><div class="status-item" id="scholarshipStatus"></div><div class="status-item" id="summerStatus"></div></div>
+        <div class="score-breakdown" id="scoreBreakdown"></div>
+      </section>
+      <footer class="footnote"><span>YOUR SCORES STAY IN THIS BROWSER</span><span>BUILT FOR YOUR NEXT STEP <b>↗</b></span></footer>
+    </section>
+  </main>
+</body>
+</html>
